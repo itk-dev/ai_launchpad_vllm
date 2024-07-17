@@ -29,7 +29,7 @@ services:
 
   vllm:
     image: itkdev/vllm:cpu
-    command: "--model ${VLLM_MODEL:-facebook/opt-125m}"
+    command: "--model ${VLLM_MODEL:-facebook/opt-125m} ${VLLM_OPTIONS:-''}"
     networks:
       - app
     extra_hosts:
