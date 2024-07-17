@@ -37,6 +37,6 @@ services:
     ports:
       - "8000"
     environment:
-      - HUGGING_FACE_HUB_TOKEN=xxx
+      - "HUGGING_FACE_HUB_TOKEN=${HUGGING_FACE_HUB_TOKEN}"
     volumes:
       - ./.docker/data/vllm/:/root/.cache/huggingface:rw
