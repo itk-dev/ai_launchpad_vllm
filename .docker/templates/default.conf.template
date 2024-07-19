@@ -13,8 +13,8 @@ server {
     real_ip_recursive on;
     real_ip_header X-Forwarded-For;
 
-    allow  ${NGINX_ALLOW_IP};
-    deny   all;
+    allow ${NGINX_ALLOW_IP};
+    deny all;
 
     proxy_connect_timeout 3600;
     proxy_send_timeout    3600;
@@ -50,6 +50,8 @@ server {
     }
 
     location /metrics {
+        allow ${NGINX_ALLOW_METRICS_IP};
+
         proxy_pass http://api;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
